@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { authGuard } from './Services/auth.guard';
 
 const routes: Routes = [
   // fix your routs 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {
     path:'dashboard',
     component:DashBoardComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate:[authGuard]
   }
 
 

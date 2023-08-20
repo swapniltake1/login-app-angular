@@ -12,7 +12,7 @@ export class LoginService {
 
   // calling server to generate token
   generateToken(credentials: any) {
-    return this.http.post(`${this.url}/auth/login`, credentials);
+    return this.http.post(`${this.url}/token`, credentials);
   }
 
   // for login user

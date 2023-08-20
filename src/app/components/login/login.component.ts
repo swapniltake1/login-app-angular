@@ -31,9 +31,14 @@ export class LoginComponent implements OnInit {
         (this.credentials.username !== null && this.credentials.password !== null)
     ) {
         console.log("we have to form submit on server !!");
+
         this.loginService.generateToken(this.credentials).subscribe(
-          response=>{
-            console.log(response);
+
+          (response:any)=>{
+            console.log(response.token);
+
+            this.loginService.loginUser(response.token)
+            window.location.href="/dashboard"
                    
           },
           error=>{
